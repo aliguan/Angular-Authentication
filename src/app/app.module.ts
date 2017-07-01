@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ServiceSession } from './session.service';
+import { SessionService } from './session.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [ServiceSession],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

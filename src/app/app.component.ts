@@ -15,6 +15,8 @@ export class AppComponent {
 
   user: any;
   error: string;
+  privateData: any = '';
+
 
   constructor(private session: SessionService) { }
 
@@ -33,4 +35,29 @@ export class AppComponent {
         (err) => this.error = err
       );
   }
+    logout() {
+      this.session.logout()
+      .subscribe(
+      () => this.user = null,
+      (err) => this.error = err
+      );
+    }
+
+    getPrivateData() {
+      this.session.getPrivateData()
+        .subscribe(
+          (data) => this.privateData = data,
+          (err) => this.error = err
+        );
+    }
+
+    errorCb(err) {
+      this.error = err;
+      this.user = null;
+    }
+
+    successCb(user) {
+      this.user = user;
+      this.error = null;
+    }
 }

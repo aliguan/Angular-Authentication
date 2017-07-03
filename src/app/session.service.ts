@@ -12,7 +12,7 @@ export class SessionService {
   handleError(e) {
     return Observable.throw(e.json().message);
   }
-
+  // request to the express app
   signup(user) {
     return this.http.post(`/signup`, user)
       .map(res => res.json())
